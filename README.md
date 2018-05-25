@@ -1,20 +1,43 @@
-# LC-Genesis
+Digital Creative Genesis
+=======================
 
-## Laverty Creative Genesis child theme
+<img alt="Digital Creative Genesis" src="screenshot.png" style="float: right; margin-left: 10px;">
 
-### The Theme
-This is the starting point for Laverty Creative websites using the Genesis Framework.
+Digital Creative Genesis is a Genesis child theme used for Laverty Creative client projects.  
 
-### Included Items
-Apart from what is provided in the Genesis Framework, this theme also includes the following...
-* Front Page template
-* Assets folder with Sass (for use with WP SCSS plugin or Gulp)
-* Slides post type with Slide Types taxonomy
-* FAQs post type
-* Testimonials post type
-* Services post type
-* Resources post type
-* Project post type
-* Carousel
-* Dashicons
-* More to come...
+For additional features, install the Digital Creative Genesis Companion plugin, [Digital Creative Genesis Companion](https://github.com/LavertyCreative/), that came with the Digital Creative Genesis theme.
+<br>
+
+
+## Features
+
+#### Customizer options:
+* Colors
+* Site logo
+* Social media profiles
+* Navigation locations
+* Global header image (for interior pages, posts, and standard WordPress templates)
+* Homepage display
+* Sidebar position (left, right, or full width blog)
+* Footer display
+* Copyright message
+
+#### Widgets:
+* Top bar
+* Header right
+* Front page 1
+* Front page 2
+* Front page 3
+* Front page 4
+* Front page 5
+* Above footer
+
+#### 3rd party plugin support:
+* Woocommerce
+* More coming soon!
+
+### Additional Components
+These components are NOT included in the theme by default, but are available in the Digital Creative Companion plugin, [Digital Creative Genesis Companion](https://github.com/LavertyCreative/).
+
+Here is a list of the currently available components in [Digital Creative Genesis Companion](https://github.com/LavertyCreative/):
+* Coming soon
