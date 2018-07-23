@@ -2,7 +2,7 @@
 /**
  * Digital Creative Genesis.
  *
- * This file adds the assets (styles and scripts) to the Digital Creative Genesis Theme.
+ * This file adds the dist (styles and scripts) to the Digital Creative Genesis Theme.
  *
  * @package Digital Creative Genesis
  * @author  Laverty Creative
@@ -19,10 +19,10 @@ function digital_creative_genesis_enqueue_scripts_styles() {
 
 	// Load responsive menu and arguments.
 	$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
-	wp_enqueue_style( 'digital-creative-genesis-custom-style', get_stylesheet_directory_uri() . "/assets/css/style{$suffix}.css", array(), CHILD_THEME_VERSION );
-	wp_enqueue_script( 'digital-creative-genesis-custom-js', get_stylesheet_directory_uri() . "/assets/js/site{$suffix}.js", array( 'jquery' ), CHILD_THEME_VERSION, true );
+	wp_enqueue_style( 'digital-creative-genesis-custom-style', get_stylesheet_directory_uri() . "/dist/css/style.css", array(), CHILD_THEME_VERSION );
+	wp_enqueue_script( 'digital-creative-genesis-custom-js', get_stylesheet_directory_uri() . "/dist/js/site{$suffix}.js", array( 'jquery' ), CHILD_THEME_VERSION, true );
 
-	wp_enqueue_script( 'digital-creative-genesis-responsive-menu', get_stylesheet_directory_uri() . "/assets/js/responsive-menus{$suffix}.js", array( 'jquery' ), CHILD_THEME_VERSION, true );
+	wp_enqueue_script( 'digital-creative-genesis-responsive-menu', get_stylesheet_directory_uri() . "/dist/js/responsive-menus{$suffix}.js", array( 'jquery' ), CHILD_THEME_VERSION, true );
 
 	if( get_theme_mod( 'digital_creative_genesis_navigation_layout_select' ) == 'centered' ) {
 		wp_localize_script(

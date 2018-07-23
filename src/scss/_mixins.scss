@@ -1,0 +1,146 @@
+/*** COMMON ***/
+
+// Mobile Breakpoints
+$breakpoints: (
+  "phone":        400px,
+  "phone-wide":   480px,
+  "phablet":      560px,
+  "tablet-small": 640px,
+  "tablet":       861px,
+  "tablet-wide":  1024px,
+  "desktop":      1201px,
+  "desktop-wide": 1341px
+);
+@mixin gc($width, $type: min) {
+  @if map_has_key($breakpoints, $width) {
+    $width: map_get($breakpoints, $width);
+    @if $type == max {
+      $width: $width - 1px;
+    }
+    @media only screen and (#{$type}-width: $width) {
+      @content;
+    }
+  }
+}
+// USAGE
+/*
+.site-header {
+  padding: 2rem;
+  font-size: 1.8rem;
+  @include gc('tablet-wide') {
+    padding-top: 4rem;
+    font-size: 2.4rem;
+  }
+}
+*/
+
+// Input Placeholders
+@mixin input-placeholder {
+  &.placeholder { @content; }
+  &:-moz-placeholder { @content; }
+  &::-moz-placeholder { @content; }
+  &:-ms-input-placeholder { @content; }
+  &::-webkit-input-placeholder { @content; }
+}
+// USAGE
+/*
+input,
+textarea {
+    @include input-placeholder {
+        color: $grey;
+    }
+}
+*/
+
+/*** STYLING ***/
+
+// Keyframe Animation
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @-o-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
+@mixin animation($value) {
+  -webkit-animation: $value;
+  -moz-animation: $value;
+  -ms-animation: $value;
+  -o-animation: $value;
+  animation: $value;
+}
+// USAGE
+/*
+@include keyframes(move) {
+  0%   { left: 0; }
+  100% { left: 100px; }
+}
+
+.box {
+  @include animation(move 0.5s ease infinite alternate);
+}
+*/
+
+// Font Styles
+@mixin font-source-sans($size: false, $colour: false, $weight: false,  $lh: false) {
+  font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+  @if $size { font-size: $size; }
+  @if $colour { color: $colour; }
+  @if $weight { font-weight: $weight; }
+  @if $lh { line-height: $lh; }
+}
+// USAGE
+/*
+div {
+  @include font-source-sans( 16px, #fff, 700, 18px );
+}
+*/
+
+// Box Shadow Emboss
+@mixin box-emboss($outerOpacity, $innerOpacity) {
+  box-shadow:
+    rgba(white, $outerOpacity) 0 1px 0,
+    rgba(black, $innerOpacity) 0 1px 0 inset;
+}
+// USAGE
+/*
+.module, header[role="banner"] {
+  @include box-emboss(0.3, 0.6);
+}
+*/
+
+// Opacity
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity = $opacity-ie); //IE8
+}
+// USAGE
+/*
+.fade {
+  @include opacity(.4);
+}
+*/
+
+// Accessible hiding
+@mixin screen-reader-text() {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+// USAGE
+/*
+.screen-reader-text {
+  @include screen-reader-text;
+}
+*/
