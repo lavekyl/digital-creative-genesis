@@ -240,3 +240,17 @@ a {
   @include transition(background-color 1s .5s, color 2s);
 }
 */
+
+// Linear Gradient
+@mixin linear-gradient($args...) {
+  background-image: -o-linear-gradient($args);
+  background-image: -moz-linear-gradient($args);
+  background-image: -webkit-linear-gradient($args);
+  background-image: linear-gradient($args);
+}
+// USAGE
+/*
+div {
+  @include linear-gradient(45deg, black, white);
+}
+*/

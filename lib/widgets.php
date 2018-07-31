@@ -17,18 +17,22 @@ genesis_register_sidebar( array(
   'description' => __( 'Widgets in this widget area will display above the header.', 'digital-creative-genesis' ),
 ) );
 
-// Register above footer widget.
+// Banner widget area.
 genesis_register_sidebar( array(
-  'id' => 'above-footer-widget',
-  'name' => __( 'Above Footer Widget', 'genesis' ),
-  'description' => __( 'Widgets in this widget area will display above the footer.', 'digital-creative-genesis' ),
-) );
+	'id'          => 'banner-widget',
+	'name'        => __( 'Banner Widget', 'digital-creative-genesis' ),
+	'description' => __( 'Widgets in this widget area will display in the banner on the homepage.', 'digital-creative-genesis' ),
+  'before_title'  => '<h1 class="widget-title">',
+  'after_title'   => '</h1>',
+));
 
 // Front Page 1 widget area.
 genesis_register_sidebar( array(
 	'id'          => 'front-page-1',
 	'name'        => __( 'Front Page 1', 'digital-creative-genesis' ),
 	'description' => __( 'Widgets in this widget area will display in the 1st section on the homepage.', 'digital-creative-genesis' ),
+  'before_title'  => '<h2 class="widget-title">',
+  'after_title'   => '</h2>',
 ));
 
 // Front Page 2 widget area.
@@ -36,6 +40,8 @@ genesis_register_sidebar( array(
 	'id'          => 'front-page-2',
 	'name'        => __( 'Front Page 2', 'digital-creative-genesis' ),
 	'description' => __( 'Widgets in this widget area will display in the 2nd section on the homepage.', 'digital-creative-genesis' ),
+  'before_title'  => '<h2 class="widget-title">',
+  'after_title'   => '</h2>',
 ));
 
 // Front Page 3 widget area.
@@ -43,6 +49,8 @@ genesis_register_sidebar( array(
 	'id'          => 'front-page-3',
 	'name'        => __( 'Front Page 3', 'digital-creative-genesis' ),
 	'description' => __( 'Widgets in this widget area will display in the 3rd section on the homepage.', 'digital-creative-genesis' ),
+  'before_title'  => '<h2 class="widget-title">',
+  'after_title'   => '</h2>',
 ));
 
 // Front Page 4 widget area.
@@ -50,6 +58,8 @@ genesis_register_sidebar( array(
 	'id'          => 'front-page-4',
 	'name'        => __( 'Front Page 4', 'digital-creative-genesis' ),
 	'description' => __( 'Widgets in this widget area will display in the 4th section on the homepage.', 'digital-creative-genesis' ),
+  'before_title'  => '<h2 class="widget-title">',
+  'after_title'   => '</h2>',
 ));
 
 // Front Page 5 widget area.
@@ -57,7 +67,18 @@ genesis_register_sidebar( array(
 	'id'          => 'front-page-5',
 	'name'        => __( 'Front Page 5', 'digital-creative-genesis' ),
 	'description' => __( 'Widgets in this widget area will display in the 5th section on the homepage.', 'digital-creative-genesis' ),
+  'before_title'  => '<h2 class="widget-title">',
+  'after_title'   => '</h2>',
 ));
+
+// Register above footer widget.
+genesis_register_sidebar( array(
+  'id' => 'above-footer-widget',
+  'name' => __( 'Above Footer Widget', 'genesis' ),
+  'description' => __( 'Widgets in this widget area will display above the footer.', 'digital-creative-genesis' ),
+  'before_title'  => '<h2 class="widget-title">',
+  'after_title'   => '</h2>',
+) );
 
 // Add top widget.
 add_action( 'genesis_before_header', 'digital_creative_genesis_top_widget' );
@@ -72,8 +93,8 @@ function digital_creative_genesis_top_widget() {
 add_action( 'genesis_before_footer', 'digital_creative_genesis_above_footer_widget', 5 );
 function digital_creative_genesis_above_footer_widget() {
   genesis_widget_area( 'above-footer-widget', array(
-	  'before' => '<div class="above-footer-widget widget-area">',
-	  'after'  => '</div>',
+	  'before' => '<div class="above-footer-widget widget-area"><div class="wrap">',
+	  'after'  => '</div></div>',
   ) );
 }
 
@@ -120,6 +141,20 @@ function digital_creative_genesis_widget_area_class( $id ) {
 	} else {
 		$class .= ' widget-halves even';
 	}
+
+  /* uncomment if you don't want a full-width widget for the first widget
+  if( $count == 1 ) {
+		$class .= ' widget-full';
+	} elseif( $count == 2 ) {
+		$class .= ' widget-halves';
+	} elseif( $count == 3 ) {
+		$class .= ' widget-thirds';
+	} elseif( $count == 4 ) {
+		$class .= ' widget-fourths';
+	} else {
+		$class .= ' widget-halves even';
+	}
+  */
 
 	return $class;
 

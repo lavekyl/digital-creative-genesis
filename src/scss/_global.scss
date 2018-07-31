@@ -1,0 +1,68 @@
+body {
+  font-family: $font_main;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font_alt;
+  text-transform: uppercase;
+}
+
+.flexible-widgets {
+  &.widget-halves .widget {
+    float: left;
+    width: 50%;
+  }
+  &.widget-thirds .widget {
+    float: left;
+    width: 33.333%;
+  }
+  &.widget-fourths .widget {
+    float: left;
+    width: 25%;
+  }
+  &.widget-halves,
+  &.widget-thirds,
+  &.widget-fourths {
+    .widget {
+      &:first-of-type {
+        float: none;
+        width: 100%;
+      }
+    }
+  }
+  .widget {
+    margin-bottom: 0;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 860px) {
+  .flexible-widgets.widget-halves .widget,
+  .flexible-widgets.widget-thirds .widget,
+  .flexible-widgets.widget-fourths .widget,
+  .flexible-widgets.widget-fifths .widget {
+    float: none;
+    width: 100%;
+  }
+}
+
+.button {
+  position: relative;
+  @include transition(all 0.3s, ease 0.3s);
+  &:after {
+    content: '→';
+    display: block;
+    position: absolute;
+    right: 15px;
+    top: 5px;
+    z-index: 1;
+    @include transition(all 0.3s, ease 0.3s);
+  }
+  &:hover {
+    @include transition(all 0.3s, ease 0.3s);
+    &:after {
+      @include transition(all 0.3s, ease 0.3s);
+      @include translate(5px, 0);
+    }
+  }
+}

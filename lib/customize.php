@@ -310,6 +310,13 @@ function digital_creative_genesis_customizer_css() { ?>
 		    text-align: center;
 		    width: 20%;
 			}
+			@media (max-width: 1023px) {
+				.header-full-width .title-area {
+					margin-top: 25px;
+					max-width: 200px;
+					width: 100%;
+				}
+			}
 		<?php } ?>
 
 		<?php if( get_theme_mod( 'digital_creative_genesis_navigation_layout_select' ) == 'right' ) { ?>
@@ -326,10 +333,38 @@ function digital_creative_genesis_customizer_css() { ?>
 		<?php } ?>
 
 		<?php if( get_theme_mod( 'digital_creative_genesis_navigation_layout_select' ) == 'top' ) { ?>
+			.header-image .title-area {
+				max-width: 400px;
+			}
+			.header-image .site-title>a {
+				display: block;
+				float: none;
+				min-height: 165px;
+			}
 			.nav-primary {
 				border-top: none;
 				text-align: center;
 			}
+		<?php } ?>
+
+		<?php if( get_theme_mod( 'digital_creative_genesis_header_image') ) { ?>
+			<?php if( !is_front_page() ) { ?>
+				.site-header {
+					background: url('<?php echo get_theme_mod( 'digital_creative_genesis_header_image' ); ?>') no-repeat center;
+					background-size: cover;
+				}
+				.site-header::after {
+			    background: rgba(255,255,255,0.6);
+			    content: '';
+			    display: block;
+			    height: 100%;
+			    left: 0;
+			    position: absolute;
+			    top: 0;
+			    width: 100%;
+			    z-index: 0;
+				}
+			<?php } ?>
 		<?php } ?>
 	</style>
 <?php } // end digital_creative_genesis_customizer_css

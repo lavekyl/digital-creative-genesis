@@ -14,7 +14,7 @@
 add_action( 'wp_enqueue_scripts', 'digital_creative_genesis_enqueue_scripts_styles' );
 function digital_creative_genesis_enqueue_scripts_styles() {
 
-	wp_enqueue_style( 'digital-creative-genesis-fonts', '//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700', array(), CHILD_THEME_VERSION );
+	wp_enqueue_style( 'digital-creative-genesis-fonts', '//fonts.googleapis.com/css?family=Lato:400,400i,700|Work+Sans:300,400,700', array(), CHILD_THEME_VERSION );
 	wp_enqueue_style( 'dashicons' );
 
 	// Load responsive menu and arguments.
